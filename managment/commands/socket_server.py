@@ -15,14 +15,21 @@ def connect(sid):
     print(sid, 'connect')
 
 
-class Command(BaseCommand):
-    args = ''
-    help = 'Подключение websocket'
-    print('command')
+# class Command(BaseCommand):
+#     args = ''
+#     help = 'Подключение websocket'
+#     print('command')
+#
+#     def handle(self, *args, **options):
+#         print('handler')
+#         app = web.Application()
+#         sio.attach(app)
+#         sio.register_namespace(namespaces.Chat('/chat/'))
+#         web.run_app(app)
 
-    def handle(self, *args, **options):
-        print('handler')
-        app = web.Application()
-        sio.attach(app)
-        sio.register_namespace(namespaces.Chat('/chat/'))
-        web.run_app(app)
+
+def init_socket_io():
+    app = web.Application()
+    sio.attach(app)
+    sio.register_namespace(namespaces.Chat('/chat/'))
+    web.run_app(app)

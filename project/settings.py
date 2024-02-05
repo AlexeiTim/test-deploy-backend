@@ -142,21 +142,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 MEDIA_URLS ='/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-LOGGING = {
-        'version': 1,
-        'disable_existing_loggers': False,
-        'handlers': {
-            'console': {
-                'level': 'DEBUG',
-                'class': 'logging.StreamHandler',
-            },
-        },
-        'loggers': {
-            'core.management.commands': {
-                'handlers': ['console'],
-                'level': 'DEBUG',
-            },
-        },
-    }
-

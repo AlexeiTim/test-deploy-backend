@@ -2,12 +2,8 @@ import socketio
 from aiohttp import web
 from core.datatools import namespaces
 from django.core.management import BaseCommand
-import logging
 
-logging.basicConfig(level=logging.NOTSET)
-logger = logging.getLogger(__name__)
-
-sio = socketio.AsyncServer(cors_allowed_origins='*', logger=logger)
+sio = socketio.AsyncServer(cors_allowed_origins='*')
 
 
 class Command(BaseCommand):
