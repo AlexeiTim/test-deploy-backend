@@ -1,5 +1,10 @@
 {
     "builds": [{
+        "src": "project/wsgi.py",
+        "use": "@vercel/python",
+        "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
+    },
+        {
         "src": "project/asgi.py",
         "use": "@vercel/python",
         "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
@@ -15,6 +20,10 @@
             "dest": "/static/$1"
         },
         {
+            "src": "/(.*)",
+            "dest": "project/wsgi.py"
+        },
+                {
             "src": "/(.*)",
             "dest": "project/asgi.py"
         }

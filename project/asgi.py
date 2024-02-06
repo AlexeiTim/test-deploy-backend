@@ -16,3 +16,5 @@ application = ProtocolTypeRouter({
             core.routing.websocket_urlpatterns
         ),
 })
+
+app = application
