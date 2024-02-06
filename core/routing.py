@@ -5,4 +5,5 @@ from . import consumers
 
 websocket_urlpatterns = [
     path('socket.io/', consumers.app),
+    path('ws/', consumers.YourConsumer.as_asgi())
 ]

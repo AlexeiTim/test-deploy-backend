@@ -1,11 +1,26 @@
 from channels.generic.websocket import AsyncWebsocketConsumer
 import json
 import socketio
+from channels.consumer import AsyncConsumer
 
 
 sio = socketio.AsyncServer(async_mode='asgi', cors_allowed_origins='*')
 app = socketio.ASGIApp(sio)
 
+
+class YourConsumer(AsyncConsumer):
+
+    async def websocket_connect(self, event):
+        await self.send({"type": "websocket.accept"})
+
+    async def websocket_receive(self, text_data):
+        await self.send({
+            "type": "websocket.send",
+            "text": "Hello from Django socket"
+        })
+
+    async def websocket_disconnect(self, event):
+        pass
 
 @sio.on('my event', namespace='/test')
 async def test_message(sid, message):
