@@ -58,8 +58,14 @@ async def test_connect(sid, environ):
 
 
 @sio.on('message')
-def print_message(sid, data):
-    print(data)
+async def print_message(sid, data):
+    await sio.emit('new-message', {'data': 'message'})
+    print(sid, data)
+
+
+@sio.on('test')
+def print_test(sid, env, data):
+    print(data, 'test')
 
 
 
