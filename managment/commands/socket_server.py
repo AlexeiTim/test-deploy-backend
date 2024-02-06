@@ -1,20 +1,17 @@
-import socketio
-from aiohttp import web
-from core.datatools import namespaces
-from django.core.management.base import BaseCommand
-import logging
-
-logging.basicConfig(level=logging.NOTSET)
-logger = logging.getLogger(__name__)
-
-sio = socketio.AsyncServer(cors_allowed_origins='*', logger=logger)
-
-
-@sio.event
-def connect(sid):
-    print(sid, 'connect')
-
-
+# import socketio
+# from aiohttp import web
+# from core.datatools import namespaces
+# from django.core.management.base import BaseCommand
+#
+#
+# sio = socketio.AsyncServer(cors_allowed_origins='*')
+#
+#
+# @sio.event
+# def connect(sid):
+#     print(sid, 'connect')
+#
+#
 # class Command(BaseCommand):
 #     args = ''
 #     help = 'Подключение websocket'
@@ -26,10 +23,3 @@ def connect(sid):
 #         sio.attach(app)
 #         sio.register_namespace(namespaces.Chat('/chat/'))
 #         web.run_app(app)
-
-
-def init_socket_io():
-    app = web.Application()
-    sio.attach(app)
-    sio.register_namespace(namespaces.Chat('/chat/'))
-    web.run_app(app)

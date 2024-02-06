@@ -2,7 +2,6 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-from core.management.commands import socket_server
 
 
 def main():
