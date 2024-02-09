@@ -67,8 +67,9 @@ class YourConsumer(AsyncConsumer):
 #     await sio.disconnect(sid, namespace='/test')
 
 
-@sio.on('connect', namespace='/test')
+@sio.on('connect')
 async def test_connect(sid, environ):
+    await sio.emit('test', {'data': 'test'})
     print('connect')
 
 
@@ -79,8 +80,15 @@ async def test_connect(sid, environ):
 
 
 @sio.on('test')
-def print_test(sid, env, data):
-    print(data, 'test')
+async def print_test(sid, env):
+    await sio.emit('test', {'data': 'test'})
+    print(sid, env)
+
+
+@sio.event
+async def my_event(sid, data):
+    await sio.emit('test', {'data': 'test'})
+    print(sid, data)
 
 
 @sio.on('disconnect')
