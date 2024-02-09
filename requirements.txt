@@ -21,7 +21,6 @@ channels-redis==4.2.0
 chardet==4.0.0
 click==8.0.3
 colorama==0.4.4
-command-not-found==0.3
 constantly==23.10.4
 coreapi==2.3.3
 coreschema==0.0.4
