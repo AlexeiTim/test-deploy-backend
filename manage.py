@@ -2,6 +2,11 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+import django
+
+
+def socket_server():
+    print('hello')
 
 
 def main():
@@ -19,5 +24,6 @@ def main():
 
 
 if __name__ == '__main__':
+    socket_server()
     main()
 
