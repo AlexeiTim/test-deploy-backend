@@ -91,6 +91,44 @@ async def my_event(sid, data):
     print(sid, data)
 
 
+@sio.on('new-message')
+async def new_message(sid, data):
+    print(sid, data)
+    await sio.emit('new-message', data)
+
+
+@sio.on('offer')
+async def print_offer(sid, data):
+    print('offer', sid, data)
+    await sio.emit('offer', data)
+
+
+@sio.on('answer')
+async def print_answer(sid, data):
+    print('answer', sid, data)
+    await sio.emit('answer', data)
+
+
+@sio.on('local-description')
+async def local_description(sid, data):
+    await sio.emit('local-description', data)
+
+
+@sio.on('remote-description')
+async def remote_description(sid, data):
+    await sio.emit('remote-description', data)
+
+
+@sio.on('local-candidate')
+async def local_candidate(sid, data):
+    await sio.emit('local-candidate', data)
+
+
+@sio.on('remote-candidate')
+async def remote_candidate(sid, data):
+    await sio.emit('remote-candidate')
+
+
 @sio.on('disconnect')
 def test_disconnect(sid):
     print('Client disconnected')

@@ -151,4 +151,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 MEDIA_URLS ='/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-ASGI_APPLICATION = 'project.asgi.application'
+ASGI_APPLICATION = 'project.asgi.app'
